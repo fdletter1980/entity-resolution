@@ -1,0 +1,111 @@
+{	
+	"trainingSamples" : [{
+		"name":"training", 
+		"format":"csv", 
+		"props": {
+			"location": "models/er-customer/training.csv",
+			"delimiter": ",",
+			"header":true,
+			"badRecordsPath":"/tmp/bad"					
+			},
+		"schema": "z_cluster string, z_ismatch integer, Customer_ID string, LICENSE_NUM string, FIRST_NAME string, LAST_NAME string, HOME_PHONE string, MOBILE_PHONE string, OFFICE_PHONE string, EMAIL string, ADDRESS string, CITY string, STATE string, ZIP_CODE string"  
+		}],	
+	"fieldDefinition":[
+		{
+			"fieldName" : "CUSTOMER_ID",
+			"matchType" : "DONT_USE",
+			"fields" : "MLS_ID",
+			"dataType": "string" 
+		},
+		{
+			"fieldName" : "LICENSE_NUM",
+			"matchType": "exact",
+			"fields" : "LICENSE_NUM",
+			"dataType": "string" 
+		},
+		{
+			"fieldName" : "LAST_NAME",
+			"matchType": "exact",
+			"fields" : "LAST_NAME",
+			"dataType": "string" 
+		},
+		{
+			"fieldName" : "FIRST_NAME",
+			"matchType": "exact",
+			"fields" : "FIRST_NAME",
+			"dataType": "string" 
+		},
+		{
+			"fieldName" : "HOME_PHONE",
+			"matchType": "DONT_USE",
+			"fields" : "HOME_PHONE",
+			"dataType": "string" 
+		},
+		{
+			"fieldName" : "MOBILE_PHONE",
+			"matchType": "DONT_USE",
+			"fields" : "MOBILE_PHONE",
+			"dataType": "string" 
+		},
+		{
+			"fieldName" : "OFFICE_PHONE",
+			"matchType": "DONT_USE",
+			"fields" : "OFFICE_PHONE",
+			"dataType": "string" 
+		},
+		{
+			"fieldName" : "EMAIL",
+			"matchType": "DONT_USE",
+			"fields" : "EMAIL",
+			"dataType": "string" 
+		},
+		{
+			"fieldName" : "ADDRESS",
+			"matchType": "exact",
+			"fields" : "ADDRESS",
+			"dataType": "string" 
+		},
+		{
+			"fieldName" : "CITY",
+			"matchType": "fuzzy",
+			"fields" : "CITY",
+			"dataType": "string" 
+		},
+		{
+			"fieldName" : "STATE",
+			"matchType": "exact",
+			"fields" : "STATE",
+			"dataType": "string" 
+		},
+		{
+			"fieldName" : "ZIP_CODE",
+			"matchType": "DONT_USE",
+			"fields" : "ZIP_CODE",
+			"dataType": "string" 
+		}
+		],
+		"output" : [{
+			"name":"output", 
+			"format":"csv", 
+			"props": {
+				"location": "models/er-customer",
+				"delimiter": ",",
+				"header":true
+			}
+		}],
+		"data" : [{
+			"name":"customer_er", 
+			"format":"csv", 
+			"props": {
+				"location": "models/er-customer/customer_er.csv",
+				"delimiter": ",",
+				"header":false					
+			},
+			"schema": "customer_ID string, LICENSE_NUM string, FIRST_NAME string, LAST_NAME string, HOME_PHONE string, MOBILE_PHONE string, OFFICE_PHONE string, EMAIL string, ADDRESS string, CITY string, STATE string, ZIP_CODE string"
+		}],
+		"labelDataSampleSize" : 0.1,
+		"numPartitions":1,
+		"modelId": 107,
+		"zinggDir": "models"
+
+}
