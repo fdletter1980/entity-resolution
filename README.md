@@ -1,6 +1,6 @@
 # entity-resolution
 
-his readme file was generated on 02/05/2024 by Fred De Letter
+This readme file was generated on 02/05/2024 by Fred De Letter
 
 The following instructions aim to help you run zingg.ai on GCP. 
 
